@@ -31,4 +31,7 @@ def upload():
     with open('temp.prg', 'rb') as f:
         return {'error': False, 'listing': listing, 'filename': filename, 'file': 'data:application/octet-stream;base64,' + base64.b64encode(f.read()).decode('ascii')}
 
-run()
+application = default_app()
+
+if __name__ == '__main__':
+    run(app=application, host='0.0.0.0', port=8080, debug=True, reloader=True)
