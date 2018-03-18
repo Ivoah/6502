@@ -16,7 +16,7 @@ def upload():
     m = re.search(filename_regex, request.body.getvalue().decode('utf-8'), re.MULTILINE)
     filename = m.group('filename') if m is not None else None
     if not filename or '/' in filename:
-        return {'error': True, 'err_type': 'Invalid filename', 'err_msg': f'The filename "{filename}" is invalid'}
+        return {'error': True, 'err_type': 'Invalid filename', 'err_msg': 'The filename "{}" is invalid'.format(filename)}
 
     with open('temp.asm', 'wb') as f:
         f.write(request.body.getvalue().replace(filename.encode('utf-8'), b'temp.prg'))
@@ -26,7 +26,7 @@ def upload():
     if m is None: print(listing)
     errors = int(m.group('errors'))
     if errors:
-        return {'error': True, 'err_type': 'Assembly error', 'err_msg': f'{errors} error{"" if errors == 1 else "s"} found', 'listing': listing}
+        return {'error': True, 'err_type': 'Assembly error', 'err_msg': '{} error{} found'.format(errors, '' if errors == 1 else 's'), 'listing': listing}
 
     with open('temp.prg', 'rb') as f:
         return {'error': False, 'listing': listing, 'filename': filename, 'file': 'data:application/octet-stream;base64,' + base64.b64encode(f.read()).decode('ascii')}
