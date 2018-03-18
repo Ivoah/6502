@@ -9,7 +9,8 @@ errors_regex = r'^(?P<errors>\d+) Errors? found during assembly\.$'
 
 @get('/')
 def root():
-    return template('main.tpl', code=open('skeleton.asm').read())
+    with open('skeleton.asm') as f:
+        return template('main.tpl', code=f.read())
 
 @post('/assemble')
 def upload():
