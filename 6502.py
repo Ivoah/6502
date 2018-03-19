@@ -21,8 +21,7 @@ def upload():
 
     with open('temp.asm', 'wb') as f:
         f.write(request.body.getvalue().replace(filename.encode('utf-8'), b'temp.prg'))
-    sbasm = subprocess.run(['sbasm3/sbasm', 'temp.asm'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    listing = sbasm.stdout.decode('utf-8').strip()
+    listing = subprocess.check_output(['sbasm3/sbasm', 'temp.asm'], stderr=subprocess.STDOUT).decode('utf-8').strip()
     m = re.search(errors_regex, listing, re.MULTILINE)
     if m is None: print(listing)
     errors = int(m.group('errors'))
