@@ -71,9 +71,6 @@
                 border: 3px solid #ccc;
                 border-radius: 5px 5px 0px 0px;
                 height: 100%;
-            }
-
-            .CodeMirror pre {
                 font-size: 10pt;
             }
 
@@ -83,7 +80,6 @@
                 border: 3px solid #ccc;
                 border-radius: 5px;
                 padding: 10px;
-                box-sizing: border-box;
                 height: 100%;
                 overflow: auto;
             }
