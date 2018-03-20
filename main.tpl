@@ -48,13 +48,10 @@
             html, body {
                 margin: 0px;
                 height: 100%;
-                display: flex;
-                flex-direction: column;
             }
 
             #container {
                 display: flex;
-                flex: 1;
             }
 
             #left {
