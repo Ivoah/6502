@@ -52,6 +52,7 @@
 
             #container {
                 display: flex;
+                height: 92vh;
             }
 
             #left {
