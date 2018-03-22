@@ -52,7 +52,7 @@
 
             #container {
                 display: flex;
-                height: 92vh;
+                height: calc(100% - 56px);
             }
 
             #left {
