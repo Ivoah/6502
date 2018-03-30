@@ -12,6 +12,10 @@ def root():
     with open('skeleton.asm') as f:
         return template('main.tpl', code=f.read())
 
+@get('/download.js')
+def download():
+    return static_file('download.js')
+
 @post('/assemble')
 def upload():
     m = re.search(filename_regex, request.body.getvalue().decode('utf-8'), re.MULTILINE)

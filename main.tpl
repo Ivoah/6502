@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.35.0/codemirror.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.35.0/codemirror.min.js"></script>
 
-        <script src="http://danml.com/js/download.js"></script>
+        <script src="download.js"></script>
 
         <script type="text/javascript">
             window.onload = function() {
