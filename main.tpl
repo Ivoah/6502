@@ -76,7 +76,7 @@
                 margin: 0px;
                 background: #f5f5f5;
                 border: 3px solid #ccc;
-                border-radius: 5px;
+                border-radius: 5px 5px 0px 0px;
                 padding: 10px;
                 height: 100%;
                 overflow: auto;

@@ -33,10 +33,14 @@ def upload():
     if m is None: print(listing)
     errors = int(m.group('errors'))
     if errors:
+        os.remove('temp.asm')
         return {'error': True, 'err_type': 'Assembly error', 'err_msg': '{} error{} found'.format(errors, '' if errors == 1 else 's'), 'listing': listing}
 
     with open('temp.prg', 'rb') as f:
-        return {'error': False, 'listing': listing, 'filename': filename, 'file': 'data:application/octet-stream;base64,' + base64.b64encode(f.read()).decode('ascii')}
+        prg = f.read()
+        os.remove('temp.asm')
+        os.remove('temp.prg')
+        return {'error': False, 'listing': listing, 'filename': filename, 'file': 'data:application/octet-stream;base64,' + base64.b64encode(prg).decode('ascii')}
 
 application = default_app()
 
